@@ -1,0 +1,54 @@
+
+<ol class="breadcrumb mb-0">
+  <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+  <li class="breadcrumb-item" *ngIf="projectName; else loadingWorkbook">Workbooks of project: {{projectName}}</li>
+  <ng-template #loadingWorkbook>
+      <li class="breadcrumb-item" >Loading project...</li>
+  </ng-template>
+</ol>
+
+<div class="container-fluid"  >
+
+
+
+  <div class="animated fadeIn" >
+
+    <div class="row">
+      <!--/.col-->
+      <div class="col-md-4" *ngFor="let workbook of workbooks">
+        <div class="row dragdrop">
+          <div class="col-md-12">
+            <div class="card card-accent-secondary">
+
+              <div class="card-body" [routerLink]="['/projects', projectId, 'workbooks', workbook.id, 'views']">
+
+              <img [src]="workbook.img" alt="{{workbook.description}}"
+                *ngIf="workbook.img; else noImageFound">
+              <ng-template #noImageFound>
+              <img src="assets/icons/Spinner.gif" alt="Image loading">
+              </ng-template>
+                 
+                
+              </div>
+              <div class="card-header " style='height:20px; padding: 0.10rem 0.10rem'>
+                <div style='color:blue; font-size:auto;text-align: center; font-weight: bold; font-style: italic'><a [routerLink]="['/projects', projectId, 'workbooks', workbook.id, 'views']">{{workbook.name}}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!--/.row-->
+
+
+
+
+    <!--/.row-->
+  </div>
+
+
+</div>
+<!-- /.conainer-fluid -->

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keyword" content="">
+  <link rel="shortcut icon" href="assets/icons/favicon.ico">
+  <base href="/">
+  <title>Data Analytics Framework</title>
+
+  <!-- Icons -->
+  <link href="assets/bootstrap/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/bootstrap/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Main styles for this application -->
+  <link href="assets/bootstrap/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <script src="assets/bootstrap/js/libs/jquery.min.js"></script>
+
+  <!-- DHIS2 Settings initialization for a baseUrl that is used for the menu -->
+  <script type="text/javascript">
+    window.dhis2 = window.dhis2 || {};
+    dhis2.settings = dhis2.settings || {};
+    dhis2.settings.baseUrl = '/';
+
+  </script>
+
+
+  <script>
+    $( document ).ready(function() {
+
+      jQuery.ajax({
+        url: '../../../api/me',
+        type: 'GET',
+        async: false,
+        beforeSend: function(xhr) {
+          //alert('sendingvalue');
+        },
+        success: function(responses) {
+          console.log(responses.firstName);
+          $('#DataAnalytics').append(responses.firstName);
+
+        }
+      });
+    });
+  </script>
+
+
+
+  <script type="text/javascript">
+    function initViz() {
+      var containerDiv = document.getElementById("main-chart"),
+        //url = "http://pathazutabsrv01.cloudapp.net/views/RMNCAHExplorationforReview/RHSubCountyDashboard?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no",
+        url = "http://pathazutabsrv01.cloudapp.net/views/90-90-90DashboardAPHIAplus/90-90-90Cascade?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no",
+        options = {
+          width: containerDiv.offsetWidth,
+          height: containerDiv.offsetHeight,
+          hideTabs: false,
+          hideToolbar:false,
+          onFirstInteractive: function () {
+            console.log("Run this code when the viz has finished loading.");
+          }
+        };
+
+      var viz = new tableau.Viz(containerDiv, url, options);
+      // Create a viz object and embed it in the container div.
+
+      var containerDiv = document.getElementById("dashboard2"),
+        url = "http://pathazutabsrv01.cloudapp.net/views/RMNCAHExplorationforReview_0/RHSubCountyDashboard?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no",
+        //url = "http://pathazutabsrv01.cloudapp.net/views/90-90-90DashboardAPHIAplus/90-90-90Cascade?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no",
+        options = {
+          width: containerDiv.offsetWidth,
+          height: containerDiv.offsetHeight,
+          hideTabs: false,
+          hideToolbar:false,
+          onFirstInteractive: function () {
+            console.log("Run this code when the viz has finished loading.");
+          }
+        };
+
+      var viz = new tableau.Viz(containerDiv, url, options);
+      // Create a viz object and embed it in the container div.
+
+
+      var containerDiv = document.getElementById("dashboard3"),
+        url = "http://pathazutabsrv01.cloudapp.net/views/Malaria2014-2017/CasesandReportingMaps?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no",
+        options = {
+          width: containerDiv.offsetWidth,
+          height: containerDiv.offsetHeight,
+          hideTabs: true,
+          hideToolbars:true,
+          onFirstInteractive: function () {
+            console.log("Run this code when the viz has finished loading.");
+          }
+        };
+
+      var viz = new tableau.Viz(containerDiv, url, options);
+
+    }
+  </script>
+
+</head>
+
+<!-- BODY options, add following classes to body to change options
+
+  // Header options
+  1. '.header-fixed'					- Fixed Header
+
+  // Sidebar options
+  1. '.sidebar-fixed'					- Fixed Sidebar
+  2. '.sidebar-hidden'				- Hidden Sidebar
+  3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+  4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
+  5. '.sidebar-compact'			  - Compact Sidebar
+
+  // Aside options
+  1. '.aside-menu-fixed'			- Fixed Aside Menu
+  2. '.aside-menu-hidden'			- Hidden Aside Menu
+  3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+  // Breadcrumb options
+  1. '.breadcrumb-fixed'			- Fixed Breadcrumb
+
+  // Footer options
+  1. 'footer-fixed'						- Fixed footer
+
+-->
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" >
+<header class="app-header navbar">
+  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler sidebar-minimizer d-md-down-none" type="button">☰</button>
+  <ul class="nav navbar-nav d-md-down-none">
+
+    <li class="nav-item px-3">
+      <a class="nav-link" href="/dhis">Home</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">Dashboard</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">GIS</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item dropdown d-md-down-none">
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle nav-link"  href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <img src="assets/icons/user.png" class="img-avatar" alt="Data Analytics">
+        <span class="d-md-down-none" id="DataAnalytics"></span>
+      </a>
+    </li>
+    <button class="navbar-toggler aside-menu-toggler" type="button"></button>
+
+  </ul>
+</header>
+<app-root></app-root>
+
+
+<footer class="app-footer">
+  <a href="/">HIGDA</a> © 2017 Palladium.
+  <span class="float-right">Powered by <a href="/">Power</a>
+        </span>
+</footer>
+
+<!-- Bootstrap and necessary plugins -->
+
+<script src="assets/bootstrap/js/libs/index.js"></script>
+<script src="assets/bootstrap/js/libs/bootstrap.min.js"></script>
+
+<!-- GenesisUI main scripts -->
+
+<script src="assets/bootstrap/js/app.js"></script>
+
+<!-- Custom scripts required by this view -->
+<script src="assets/bootstrap/js/views/main.js"></script>
+
+
+<script src="assets/tableau/tableau-2.min.js"></script>
+
+
+<!-- Plugins and scripts required by this views -->
+<script src="assets/bootstrap/js/libs/gauge.min.js"></script>
+
+<!-- Custom scripts required by this view -->
+<script src="assets/bootstrap/js/views/widgets.js"></script>
+
+
+<!-- Plugins and scripts required by all views -->
+<script src="assets/bootstrap/js/libs/Chart.min.js"></script>
+
+</body>
+
+</html>

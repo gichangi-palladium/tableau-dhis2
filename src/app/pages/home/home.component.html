@@ -1,0 +1,94 @@
+<ol class="breadcrumb mb-0">
+  <li class="breadcrumb-item">Home</li>
+</ol>
+<div class="container-fluid"  >
+
+
+
+  <div class="animated fadeIn" >
+
+    <div class="row">
+
+      <div class="col-sm-6 col-lg-3" *ngFor="let project of projects">
+        <div class="card text-white {{project.bgcolor}}" (click)="goToWorkbookPage(project.id)" style="cursor: pointer;">
+          <div class="card-body pb-0">
+            <div class="btn-group float-right">
+              <button class="btn btn-transparent active dropdown-toggle p-0" aria-expanded="false" aria-haspopup="true" type="button" data-toggle="dropdown">
+                <i class="icon-settings"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" style="left: 0px; top: 0px; position: absolute; transform: translate3d(31px, 19px, 0px);" x-placement="bottom-end">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <h4 class="mb-0">{{project.name}}</h4>
+            <p>{{project.description}}</p>
+          </div>
+          <div class="chart-wrapper px-3" style="height:70px;"><iframe tabindex="-1" class="chartjs-hidden-iframe" style="margin: 0px; border: 0px; border-image: none; left: 0px; top: 0px; width: 100%; height: 100%; right: 0px; bottom: 0px; overflow: hidden; display: block; position: absolute; z-index: -1; pointer-events: none;"></iframe>
+            <canvas width="50" height="160" class="chart chart-line" id="card-chart1" style="width: 218px; height: 70px; display: block;"></canvas>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+
+      
+
+      <!-- <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body pb-0">
+            <div class="btn-group float-right">
+              <button class="btn btn-transparent active dropdown-toggle p-0" aria-expanded="false" aria-haspopup="true" type="button" data-toggle="dropdown">
+                <i class="icon-settings"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" style="left: 0px; top: 0px; position: absolute; transform: translate3d(31px, 19px, 0px);" x-placement="bottom-end">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <h4 class="mb-0">9.823</h4>
+            <p>Members online</p>
+          </div>
+          <div class="chart-wrapper">
+            <div class="chart-wrapper" style="height:70px;"><iframe tabindex="-1" class="chartjs-hidden-iframe" style="margin: 0px; border: 0px; border-image: none; left: 0px; top: 0px; width: 100%; height: 100%; right: 0px; bottom: 0px; overflow: hidden; display: block; position: absolute; z-index: -1; pointer-events: none;"></iframe>
+              <canvas width="574" height="160" class="chart chart-line" id="card-chart3" style="width: 250px; height: 70px; display: block;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body pb-0">
+            <div class="btn-group float-right">
+              <button class="btn btn-transparent active dropdown-toggle p-0" aria-expanded="false" aria-haspopup="true" type="button" data-toggle="dropdown">
+                <i class="icon-settings"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <h4 class="mb-0">9.823</h4>
+            <p>Members online</p>
+          </div>
+          <div class="chart-wrapper px-3" style="height:70px;"><iframe tabindex="-1" class="chartjs-hidden-iframe" style="margin: 0px; border: 0px; border-image: none; left: 0px; top: 0px; width: 100%; height: 100%; right: 0px; bottom: 0px; overflow: hidden; display: block; position: absolute; z-index: -1; pointer-events: none;"></iframe>
+            <canvas width="501" height="160" class="chart chart-bar" id="card-chart4" style="width: 218px; height: 70px; display: block;"></canvas>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+    <!--/.row-->
+
+
+
+
+    <!--/.row-->
+  </div>
+
+
+</div>
+<!-- /.conainer-fluid -->

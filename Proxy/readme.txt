@@ -1,0 +1,1 @@
+run 'corsproxy' in command line to start theproxy

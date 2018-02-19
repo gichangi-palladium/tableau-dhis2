@@ -1,0 +1,108 @@
+<div class="app-body">
+    <div class="sidebar">
+        <form class="sidebar-form">
+          <div class="form-group p-2  mb-0">
+            <input type="text" class="form-control" aria-describedby="search" placeholder="Search...">
+          </div>
+        </form>
+        <nav class="sidebar-nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['']"><i class="icon-speedometer"></i> Dashboard </a>
+            </li>
+    
+            <li class="divider"></li>
+            <li class="nav-title">
+              Program Dashboards
+            </li>
+
+            
+            <ng-container *ngFor="let project of projects">
+              <tableau-menuitem [project]="project"></tableau-menuitem>
+            </ng-container> 
+           
+           
+            <li class="divider"></li>
+            <li class="nav-title">
+              Reports
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i> Scorecards</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages-login.html" target="_top"><i class="icon-puzzle"></i> Facility Scorecard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages-login.html" target="_top"><i class="icon-puzzle"></i> RH Scorecard</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i> Data Quality</a>
+    
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i>Data Completeness Reports</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i> Data Outliers Reports</a>
+    
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i>SDG3 Tracker Reports</a>
+    
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i>RNMCAH SDG Report</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i> Data Outliers Reports</a>
+    
+                </li>
+              </ul>
+            </li>
+    
+            <li class="nav-title">
+              Resources
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i> Tutorials</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages-login.html" target="_top"><i class="icon-puzzle"></i> Videos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages-login.html" target="_top"><i class="icon-puzzle"></i>Manuals</a>
+                </li>
+              </ul>
+            </li>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </ul>
+        </nav>
+      </div>
+    
+      <!-- Main content -->
+      <main class="main">
+        <!-- Breadcrumb -->
+        
+            <router-outlet></router-outlet>
+    
+    
+    
+    
+      </main>
+    
+ 
+
+</div>  
+  
+  
+
+
+

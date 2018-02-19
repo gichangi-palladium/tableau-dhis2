@@ -1,0 +1,14 @@
+<li [ngClass]="isOpen?'nav-item nav-dropdown open':'nav-item nav-dropdown'" *ngIf="project.childProjects.length > 0">
+        <a class="nav-link nav-dropdown-toggle" [routerLink]="['/projects', project.id, 'workbooks']" (click)="isOpen = !isOpen">
+          <i class="icon-note"></i> {{project.name}}
+        </a>
+        <ul class="nav-dropdown-items">
+            <ng-container *ngFor="let child of project.childProjects">
+                    <tableau-menuitem [project]="child"></tableau-menuitem>
+            </ng-container>
+         
+        </ul>
+      </li>
+      <li class="nav-item" *ngIf="project.childProjects.length === 0">
+          <a class="nav-link" [routerLink]="['/projects', project.id, 'workbooks']"><i class="icon-note"></i> {{project.name}}</a>
+        </li>
