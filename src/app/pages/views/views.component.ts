@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import '../../../assets/tableau/tableau-2.min.js';
 import { AppComponent } from '../../app.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TableauService, WorkbookInfo, ViewInfo, ProjectInfo } from '../../services/tableau/tableau.service';
 import { WorkbooksComponent } from '../workbooks/workbooks.component';
 import urljoin from "url-join";
@@ -18,7 +18,7 @@ export class ViewsComponent implements OnInit, OnDestroy{
     projectId: string;
     workbook:WorkbookInfo;
     project:ProjectInfo;
-  constructor(private route:ActivatedRoute, private tableauService:TableauService){}
+  constructor(private route:ActivatedRoute, private tableauService:TableauService, private router:Router){}
   ngOnInit(){
     //subscribe for incoming parameter change
     this.sub = this.route.params.subscribe(p=>{
@@ -49,7 +49,10 @@ export class ViewsComponent implements OnInit, OnDestroy{
     this.sub.unsubscribe();
   }
   goToView(viewContentUrl:string){
-      var w = window.open(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
+      //navigate in current window
+      this.router.navigateByUrl(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
+      //open new window
+      //let w = window.open(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
 
   }
 
