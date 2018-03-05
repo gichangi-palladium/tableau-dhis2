@@ -50,7 +50,7 @@ export class ViewsComponent implements OnInit, OnDestroy{
   }
   goToView(viewContentUrl:string){
       //navigate in current window
-      this.router.navigateByUrl(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
+      window.location.href = urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1));
       //open new window
       //let w = window.open(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
 
