@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TableauService, WorkbookInfo, ViewInfo, ProjectInfo } from '../../services/tableau/tableau.service';
 import { WorkbooksComponent } from '../workbooks/workbooks.component';
 import urljoin from "url-join";
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-views',
   templateUrl: './views.component.html',
@@ -50,7 +50,7 @@ export class ViewsComponent implements OnInit, OnDestroy{
   }
   goToView(viewContentUrl:string){
       //navigate in current window
-      window.location.href = urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1));
+      window.location.href = urljoin(environment.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1));
       //open new window
       //let w = window.open(urljoin(this.tableauService.viewDisplayBaseUrl, this.workbook.contentUrl, viewContentUrl.substr(viewContentUrl.lastIndexOf("/")+1)));
 

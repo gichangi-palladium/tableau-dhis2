@@ -4,5 +4,11 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //tableau settings
+  backendUrl: "http://localhost:10859/api/2.8",
+  viewDisplayBaseUrl: "http://demo.virtdb.com:8012/#/views",
+  userName: "holicst",
+  password: "virtdb4ever",
+  siteContentUrl:""
 };

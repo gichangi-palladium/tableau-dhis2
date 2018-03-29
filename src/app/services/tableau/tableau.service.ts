@@ -3,13 +3,10 @@ import { Http, Response, Headers, RequestOptions, RequestMethod, ResponseContent
 import urljoin from "url-join";
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class TableauService{
-    //the Tableau base URL to use
-    private baseApiUrl:string = "http://localhost:1337/tableauserver.centralus.cloudapp.azure.com/api/2.8";
-    //the prefix of the url that the user gets redirected to when clicking on a view
-    public viewDisplayBaseUrl:string = "http://tableauserver.centralus.cloudapp.azure.com/#/site/MOH-Kenya/views";
 
     constructor(public http:Http, public router:Router){ 
     }
@@ -40,7 +37,7 @@ export class TableauService{
             headers: headers,
             method: method,
             body:body,
-            url: urljoin(this.baseApiUrl, relativeUrl),
+            url: urljoin(environment.backendUrl, relativeUrl),
             responseType: responseType
           });
         return this.http.request(options.url, options);
@@ -60,10 +57,10 @@ export class TableauService{
         console.debug("Logging in to Tableau Server")
         return this._tableauLogin = this.tableauRequest('auth/signin', RequestMethod.Post, null, {
             credentials: {
-              name: "john.gichangi@thepalladiumgroup.com",
-              password: "yourveryverylongpassword!",
+              name:environment.userName,
+              password: environment.password,
               site: {
-                contentUrl: "MOH-Kenya"
+                contentUrl: environment.siteContentUrl
               }
             }
           }).then(e=>{

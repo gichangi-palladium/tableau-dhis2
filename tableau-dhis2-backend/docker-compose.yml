@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  tableau-dhis2-backend:
+    image: tableau-dhis2-backend
+    build:
+      context: ./tableau-dhis2-backend
+      dockerfile: Dockerfile
