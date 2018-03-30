@@ -17,9 +17,10 @@ namespace tableau_dhis2_backend
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+  .UseUrls("http://0.0.0.0:5000")
                 .Build();
     }
 }
